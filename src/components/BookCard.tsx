@@ -9,38 +9,34 @@ interface BookCardProps {
 export const BookCard = ({ book, onToggleStatus, onDelete }: BookCardProps) => {
   return (
     <div className="card">
-      <h3 style={{ marginBottom: '0.5rem' }}>{book.titre}</h3>
-      <p style={{ color: 'var(--text-muted)', marginBottom: '1rem' }}>par {book.auteur}</p>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <span style={{ 
-          color: book.disponible ? 'var(--success)' : 'var(--danger)',
-          fontWeight: 'bold',
-          fontSize: '0.9rem'
-        }}>
-          {book.disponible ? '✓ Disponible' : '✗ Emprunté'}
-        </span>
+      <h3 style={{ fontSize: '1.1rem', marginBottom: '0.25rem' }}>{book.titre}</h3>
+      <p style={{ color: '#444', marginBottom: '1rem', fontSize: '0.85rem', fontStyle: 'italic' }}>
+        by {book.auteur}
+      </p>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <div style={{ 
+            width: '12px', 
+            height: '12px', 
+            backgroundColor: book.disponible ? '#00AA00' : '#AA0000',
+            border: '1px solid black'
+          }} />
+          <span style={{ fontSize: '0.85rem' }}>
+            {book.disponible ? 'Available' : 'Borrowed'}
+          </span>
+        </div>
         <div style={{ display: 'flex', gap: '0.5rem' }}>
           <button 
             onClick={() => onToggleStatus(book.id)}
-            style={{ 
-              backgroundColor: book.disponible ? 'var(--danger)' : 'var(--success)',
-              padding: '0.5rem 1rem',
-              fontSize: '0.8rem'
-            }}
+            style={{ flex: 1 }}
           >
-            {book.disponible ? 'Emprunter' : 'Rendre'}
+            {book.disponible ? 'Borrow' : 'Return'}
           </button>
           <button 
             onClick={() => onDelete(book.id)}
-            style={{ 
-              backgroundColor: 'transparent',
-              border: '1px solid var(--danger)',
-              color: 'var(--danger)',
-              padding: '0.5rem 1rem',
-              fontSize: '0.8rem'
-            }}
+            style={{ flex: 1, color: '#AA0000' }}
           >
-            Supprimer
+            Remove
           </button>
         </div>
       </div>

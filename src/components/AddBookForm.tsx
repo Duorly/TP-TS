@@ -20,27 +20,27 @@ export const AddBookForm = ({ onAdd }: AddBookFormProps) => {
   return (
     <form onSubmit={handleSubmit} className="card" style={{ marginBottom: '2rem', display: 'flex', flexWrap: 'wrap', gap: '1rem', alignItems: 'flex-end' }}>
       <div style={{ flex: '1 1 300px' }}>
-        <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', color: 'var(--text-muted)' }}>Titre du livre</label>
+        <label style={{ display: 'block', marginBottom: '0.25rem', fontSize: '0.85rem' }}>Book Title:</label>
         <input 
           type="text" 
           value={titre} 
           onChange={(e) => setTitre(e.target.value)} 
-          placeholder="Ex: Le Petit Prince"
+          placeholder="Type title here..."
           required
         />
       </div>
       <div style={{ flex: '1 1 300px' }}>
-        <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', color: 'var(--text-muted)' }}>Auteur</label>
+        <label style={{ display: 'block', marginBottom: '0.25rem', fontSize: '0.85rem' }}>Author:</label>
         <input 
           type="text" 
           value={auteur} 
           onChange={(e) => setAuteur(e.target.value)} 
-          placeholder="Ex: Antoine de Saint-Exupéry"
+          placeholder="Type author here..."
           required
         />
       </div>
-      <button type="submit" style={{ flex: '0 0 auto', height: '45px' }}>
-        Ajouter le livre
+      <button type="submit" style={{ flex: '0 0 auto', height: '35px' }}>
+        Add Book
       </button>
     </form>
   );

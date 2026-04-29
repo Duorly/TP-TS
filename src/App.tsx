@@ -50,22 +50,26 @@ function App() {
 
   return (
     <div className="app-container">
-      <h1>Ma Bibliothèque</h1>
+      <h1>Library Manager</h1>
       
-      <AddBookForm onAdd={handleAddBook} />
-      
-      <Filters 
-        searchQuery={searchQuery} 
-        onSearchChange={setSearchQuery} 
-        showOnlyAvailable={showOnlyAvailable} 
-        onToggleAvailable={setShowOnlyAvailable} 
-      />
+      <div className="content-wrapper">
+        <div className="form-section">
+          <AddBookForm onAdd={handleAddBook} />
+        </div>
+        
+        <Filters 
+          searchQuery={searchQuery} 
+          onSearchChange={setSearchQuery} 
+          showOnlyAvailable={showOnlyAvailable} 
+          onToggleAvailable={setShowOnlyAvailable} 
+        />
 
-      <BookList 
-        books={filteredBooksArray} 
-        onToggleStatus={handleToggleStatus} 
-        onDelete={handleDeleteBook} 
-      />
+        <BookList 
+          books={filteredBooksArray} 
+          onToggleStatus={handleToggleStatus} 
+          onDelete={handleDeleteBook} 
+        />
+      </div>
     </div>
   );
 }

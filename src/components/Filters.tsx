@@ -13,7 +13,7 @@ export const Filters = ({ searchQuery, onSearchChange, showOnlyAvailable, onTogg
           type="text" 
           value={searchQuery} 
           onChange={(e) => onSearchChange(e.target.value)} 
-          placeholder="Rechercher par titre ou auteur..."
+          placeholder="Search books..."
         />
       </div>
       <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
@@ -24,8 +24,8 @@ export const Filters = ({ searchQuery, onSearchChange, showOnlyAvailable, onTogg
           onChange={(e) => onToggleAvailable(e.target.checked)}
           style={{ width: 'auto' }}
         />
-        <label htmlFor="available-only" style={{ cursor: 'pointer', fontSize: '0.9rem' }}>
-          Afficher uniquement les livres disponibles
+        <label htmlFor="available-only" style={{ cursor: 'pointer', fontSize: '0.85rem' }}>
+          Show available only
         </label>
       </div>
     </div>

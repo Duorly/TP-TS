@@ -4,9 +4,10 @@ import { Book, BookCollection } from './types/book';
 import { BookList } from './components/BookList';
 import { AddBookForm } from './components/AddBookForm';
 import { Filters } from './components/Filters';
+import { useLocalStorage } from './hooks/useLocalStorage';
 
 function App() {
-  const [books, setBooks] = useState<BookCollection>(initialBooks);
+  const [books, setBooks] = useLocalStorage<BookCollection>('library-books', initialBooks);
   const [searchQuery, setSearchQuery] = useState('');
   const [showOnlyAvailable, setShowOnlyAvailable] = useState(false);
 

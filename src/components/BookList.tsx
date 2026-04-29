@@ -1,5 +1,6 @@
 import { Book } from '../types/book';
 import { BookCard } from './BookCard';
+import { GenericList } from './GenericList';
 
 interface BookListProps {
   books: Book[];
@@ -8,24 +9,18 @@ interface BookListProps {
 }
 
 export const BookList = ({ books, onToggleStatus, onDelete }: BookListProps) => {
-  if (books.length === 0) {
-    return (
-      <div style={{ textAlign: 'center', padding: '2rem', color: 'var(--text-muted)' }}>
-        Aucun livre trouvé.
-      </div>
-    );
-  }
-
   return (
-    <div className="book-grid">
-      {books.map((book) => (
+    <GenericList 
+      items={books}
+      className="book-grid"
+      emptyMessage="Aucun livre trouvé."
+      renderItem={(book) => (
         <BookCard 
-          key={book.id} 
           book={book} 
           onToggleStatus={onToggleStatus} 
           onDelete={onDelete} 
         />
-      ))}
-    </div>
+      )}
+    />
   );
 };
